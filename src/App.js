@@ -89,6 +89,18 @@ const App = () => {
       currentValue = await contract.add(a, b);
 
       console.log("value is: ", currentValue);
+    } else if (sign === "-") {
+      currentValue = await contract.subtract(a, b);
+
+      console.log("value is: ", currentValue);
+    } else if (sign === "X") {
+      currentValue = await contract.mul(a, b);
+
+      console.log("value is: ", currentValue);
+    } else if (sign === "/") {
+      currentValue = await contract.divide(a, b);
+
+      console.log("value is: ", currentValue);
     }
     return currentValue;
   };
@@ -106,9 +118,7 @@ const App = () => {
         res:
           calc.num === "0" && calc.sign === "/"
             ? "Can't divide with 0"
-            : toLocaleString(
-              parseInt(result._hex, 16)
-              ),
+            : toLocaleString(parseInt(result._hex, 16)),
         sign: "",
         num: 0,
       });
@@ -152,7 +162,7 @@ const App = () => {
               }
               value={btn}
               onClick={async () => {
-                console.log('btn is', btn);
+                console.log("btn is", btn);
                 if (btn === "Start") {
                   defineContract();
                 } else if (btn === "C") {
