@@ -7,8 +7,6 @@ import Button from "./components/Button";
 import { abi, contractAddress } from "./const.js";
 import { ethers } from "ethers";
 
-// let [firstClick, setFirstClick] = useState(true);
-// let [contract, setContract] = useState();
 let contract = null;
 
 const btnValues = [
@@ -145,6 +143,7 @@ const App = () => {
 
   return (
     <Wrapper>
+      <h1>Please click start first</h1>
       <Screen value={calc.num ? calc.num : calc.res} />
       <ButtonBox>
         {btnValues.flat().map((btn, i) => {
